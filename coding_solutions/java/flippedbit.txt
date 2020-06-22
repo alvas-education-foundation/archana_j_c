@@ -1,6 +1,6 @@
 import java.util.*; 
   
-public class Count { // Function that count set bits 
+public class Count {  
     public static int countSetBits(int n) 
     { 
         int count = 0; 

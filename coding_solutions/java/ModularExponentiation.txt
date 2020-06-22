@@ -1,0 +1,33 @@
+import java.io.*;  
+  
+public class Modexo  
+{  
+static int exponentMod(int X,  
+                       int Y, int P)  
+{  
+    if (X == 0)  
+        return 0;  
+    if (Y == 0)  
+        return 1;  
+    long y;  
+    if (Y % 2 == 0) 
+    {  
+        y = exponentMod(X, Y / 2, P);  
+        y = (y * y) % P;  
+    }  
+    else 
+    {  
+        y = X % P;  
+        y = (y * exponentMod(X, Y - 1,  
+                             P) % P) % P;  
+    }  
+      
+    return (int)((y + P) % P);  
+}  
+public static void main(String args[])  
+{  
+    int X = 2, Y = 3, P = 5;  
+    System.out.println("Power is " +  
+                        exponentMod(X, Y, P));  
+}  
+}
